@@ -30,7 +30,11 @@ export class TodoStore {
           if(index > -1){
               this.todos.splice(index, 1);
           }
-        })
+        }),
+      complete: action( todo => {
+        const index = this.todos.indexOf(todo);
+        this.todos[index].done = true;
+      })
     });
     return this;
   }

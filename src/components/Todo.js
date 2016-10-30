@@ -5,9 +5,10 @@ const Todo = observer(['store'],
   class Todo extends React.Component {
 
     render() {
+      let strikeThrough = this.props.todo.done ? 'line-through' : null;
       return (
-        <p onClick={()=>this.props.store.remove(this.props.todo)}>
-          <span>{this.props.todo.text}</span>
+        <p style={{textDecoration:strikeThrough}} onClick={()=>this.props.store.complete(this.props.todo)}>
+          {this.props.todo.text}
         </p>
       );
     }
